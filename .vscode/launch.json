@@ -1,0 +1,30 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python Debugger: Current File with Arguments",
+            "type": "debugpy",
+            "module": "torch.distributed.launch",
+            "request": "launch",
+            "console": "integratedTerminal",
+            "args": [
+                "--nproc_per_node=8",
+                "scripts/main_videomae_finetune.py",
+                "--use-flash-attn",
+                "--channel-last",
+                "--finetune",
+                "checkpoints/avion_videomae_pretrain_vitb.pt",
+                "-j",
+                "8",
+                "--output-dir",
+                "experiments/videomae_finetune_vitb_lion_e800/",
+                "--evaluate",
+                "--resume",
+                "checkpoints/avion_videomae_finetune_vitb_best.pt"
+            ]
+        }
+    ]
+}

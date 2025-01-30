@@ -1,0 +1,35 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python Debugger: Current File with Arguments",
+            "type": "debugpy",
+            "module": "torch.distributed.launch",
+            "request": "launch",
+            "console": "integratedTerminal",
+            "args": [
+                "--nproc_per_node=8",
+                "main_videomae_pretrain.py",
+                "--root",
+                "./sss/annofab-data/",
+                "--train-metadata",
+                "datasets/hktk555_pt/train.txt",
+                "--model",
+                "VIDEOMAE_VITB16",
+                "--use-flash-attn-at-encoder",
+                "--use-flash-attn-at-decoder",
+                "--batch-size",
+                "64",
+                "--channel-last",
+                "--fused-decode-crop",
+                "--use-multi-epochs-loader",
+                "--optimizer",
+                "lion",
+                "-j",
+                "8",
+                "--output-dir",
+                "experiments/videomae_pretrain_vitb_lion_hktk555_pt"
+            ]
+        }
+    ]
+}

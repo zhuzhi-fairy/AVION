@@ -1,0 +1,28 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python Debugger: Current File with Arguments",
+            "type": "debugpy",
+            "module": "torch.distributed.launch",
+            "request": "launch",
+            "console": "integratedTerminal",
+            "args": [
+                "--nproc_per_node=8",
+                "scripts/main_lavila_finetune_mir.py",
+                "--root",
+                "datasets/EK100/EK100_320p_15sec_30fps_libx264/",
+                "--video-chunk-length",
+                "15",
+                "--use-flash-attn",
+                "--grad-checkpointing",
+                "--use-fast-conv1",
+                "--use-multi-epochs-loader",
+                "--pretrain-model",
+                "checkpoints/avion_pretrain_baseline_vitb_best.pt",
+                "--output-dir",
+                "experiments/ek100_mir_ft"
+            ]
+        }
+    ]
+}
